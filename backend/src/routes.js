@@ -12,6 +12,8 @@ const routes = Router()
 // Body: request.boddy (Dados para criação  ou alteração de um registro)
 
 
+routes.get('/devs', DevController.index)
+
 routes.post('/devs', DevController.store)
 
 module.exports = routes
