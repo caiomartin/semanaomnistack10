@@ -1,4 +1,5 @@
 const mongose = require('mongoose')
+const PointSchema = require('./utils/PointSchema')
 
 const DevSchema = new mongose.Schema({
     name: String,
@@ -6,6 +7,10 @@ const DevSchema = new mongose.Schema({
     bio: String,
     avatar_url: String,
     techs: [String],
+    location: {
+        type: PointSchema, 
+        createIndexes: '2dsphere'
+    }
 })
 
 module.exports = mongose.model('Dev', DevSchema)
